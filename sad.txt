@@ -1,0 +1,16 @@
+2. get_next_line.c
+5 functions
+Function				Description																									Return
+get_next_line(int fd)	Main function. Coordinates reading, extraction and stash updates.											char *
+fill_stash(int fd, t_stash *stash)	Reads from the file descriptor until a newline is found or EOF is reached.						int
+append(t_stash *stash, char *buf, int bytes_read)	Adds newly read characters to the stash. Expands its capacity when necessary.	int
+extract_line(t_stash *stash)	Allocates and returns the next line, including \n if present.										char *
+update_stash(t_stash *stash)	Removes the returned line from the stash while preserving remaining characters.						void
+
+3. get_next_line_utils.c
+4 functions
+Function				Description	Return
+init_stash(t_stash *stash)					Initializes the stash fields and allocates its initial content buffer.	int
+str_len(char *str)							Returns the length of a string.	int
+str_index(char *str, char c)				Returns the index of the first occurrence of a character, or -1 if absent.	int
+copy_data(char *dst, char *src, int len)	Copies a specified number of characters from source to destination.	void
